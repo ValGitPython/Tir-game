@@ -9,7 +9,7 @@ pygame.init()
 WIDTH, HEIGHT = 800, 600
 TARGET_RADIUS = 30
 TARGET_COLOR = (255, 0, 0)
-BACKGROUND_COLOR = (0, 0, 0)
+BACKGROUND_COLOR = (246, 246,246)
 FPS = 60
 
 # Настройка окна
@@ -36,6 +36,13 @@ def main():
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
+
+
+                # Звук выстрела
+                pygame.mixer.music.load('img/pistol-shot.mp3')
+                pygame.mixer.music.play(0)
+
+
                 shots += 1  # Увеличиваем счетчик выстрелов
                 mouse_x, mouse_y = event.pos
                 # Проверка попадания по мишени
@@ -52,11 +59,11 @@ def main():
         font = pygame.font.Font(None, 36)
         
         # Счет
-        score_text = font.render(f"Счет: {score}", True, (255, 255, 255))
+        score_text = font.render(f"Счет: {score}", True, (0, 0, 0))
         screen.blit(score_text, (10, 10))
         
         # Выстрелы
-        shots_text = font.render(f"Выстрелы: {shots}", True, (255, 255, 255))
+        shots_text = font.render(f"Выстрелы: {shots}", True, (0, 0, 0))
         screen.blit(shots_text, (10, 50))
         
         # Процент попаданий
@@ -64,7 +71,7 @@ def main():
             accuracy = (hits / shots) * 100
         else:
             accuracy = 0
-        accuracy_text = font.render(f"Попадания: {accuracy:.2f}%", True, (255, 255, 255))
+        accuracy_text = font.render(f"Попадания: {accuracy:.2f}%", True, (0, 0, 0))
         screen.blit(accuracy_text, (10, 90))
 
         pygame.display.flip()

@@ -18,7 +18,7 @@ pygame.display.set_caption("Тир")
 
 # Загрузка изображения для курсора
 cursor_image = pygame.image.load('img/cursor_pistol.png')  # Укажите путь к вашему изображению
-cursor_image = pygame.transform.scale(cursor_image, (74, 74))  # Измените размер, если нужно
+cursor_image = pygame.transform.scale(cursor_image, (86, 86))  # Измените размер, если нужно
 
 # Скрываем стандартный курсор
 pygame.mouse.set_visible(False)
@@ -50,7 +50,7 @@ def main():
                 shots += 1  # Увеличиваем счетчик выстрелов
                 mouse_x, mouse_y = event.pos
 
-                mouse_x = mouse_x + 37  # перемещаем координату X на середину прицела
+                mouse_x = mouse_x + 43  # перемещаем координату X на середину прицела
                
 
                 # Проверка попадания по мишени
